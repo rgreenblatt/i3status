@@ -17,15 +17,18 @@ general {
     output_format = i3bar
 }
 
+order += "sysdata"
+order += "nvidia_smi"
+order += "diskdata"
+order += "net_rate rate"
+order += "apt_updates"
 order += "volume master"
-order += "wireless wlp4s0"
 order += "battery 0"
 order += "tztime local"
 order += "time"
 
-wireless wlp8s0 {
-    format_up = "%quality %essid %ip"
-    format_down = ""
+net_rate rate {
+  format = "{down} {up}"
 }
 
 battery 0 {
