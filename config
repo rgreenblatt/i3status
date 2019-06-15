@@ -19,7 +19,7 @@ general {
 
 order += "sysdata simplified"
 order += "nvidia_smi simplified"
-order += "diskdata"
+order += "diskdata simplified"
 order += "net_rate rate"
 order += "apt_updates"
 order += "volume master"
@@ -37,6 +37,10 @@ nvidia_smi simplified {
 
 net_rate rate {
   format = "{down} {up}"
+}
+
+diskdata simplified {
+  format = "dsk: {used_percent}% {total}"
 }
 
 battery 0 {
