@@ -9,16 +9,16 @@
 ###############################################################################
 
 general {
-    interval = 1
-    colors = true
-    color_good = '#80ff00'
-    color_degraded = '#ffff00'
-    color_bad = '#ff0000'
-    output_format = i3bar
+  interval = 1
+  colors = true
+  color_good = '#80ff00'
+  color_degraded = '#ffff00'
+  color_bad = '#ff0000'
+  output_format = i3bar
 }
 
-order += "sysdata"
-order += "nvidia_smi"
+order += "sysdata simplified"
+order += "nvidia_smi simplified"
 order += "diskdata"
 order += "net_rate rate"
 order += "apt_updates"
@@ -27,36 +27,44 @@ order += "battery 0"
 order += "tztime local"
 order += "time"
 
+sysdata simplified {
+  format = "cpu: {cpu_used_percent}% {mem_used_percent}%"
+}
+
+nvidia_smi simplified {
+  format_gpu = "gpu: {utilization.gpu}% {utilization.memory}%"
+}
+
 net_rate rate {
   format = "{down} {up}"
 }
 
 battery 0 {
-    format = "%status %percentage %remaining"
-    format_down = ""
-    last_full_capacity = true
-    integer_battery_capacity = true
-    low_threshold = 11
-    threshold_type = percentage
-    hide_seconds = true
-    format_down = "No battery"
-    status_chr = "CHR"
-    status_bat = "BAT"
-    status_full = "FULL"
+  format = "%status %percentage %remaining"
+  format_down = ""
+  last_full_capacity = true
+  integer_battery_capacity = true
+  low_threshold = 11
+  threshold_type = percentage
+  hide_seconds = true
+  format_down = "No battery"
+  status_chr = "CHR"
+  status_bat = "BAT"
+  status_full = "FULL"
 }
 
 tztime local {
-    format = "%b %d, %Y"
+  format = "%b %d, %Y"
 }
 
 time {
-    format = "%H:%M:%S"
+  format = "%H:%M:%S"
 }
 
 volume master {
-    format = "vol: %volume"
-    format_muted =  "muted (%volume)"
-    device = "default"
-    mixer = "Master"
-    mixer_idx = 0
+  format = "vol: %volume"
+  format_muted =  "muted (%volume)"
+  device = "default"
+  mixer = "Master"
+  mixer_idx = 0
 }
