@@ -17,6 +17,8 @@ general {
   output_format = i3bar
 }
 
+order += "external_script keyboard_info"
+order += "weather_owm"
 order += "sysdata simplified"
 order += "nvidia_smi simplified"
 order += "diskdata simplified"
@@ -26,6 +28,17 @@ order += "volume master"
 order += "battery 0"
 order += "tztime local"
 order += "time"
+
+external_script keyboard_info {
+  cache_timeout = 0.5
+  script_path = 'keyboard_status'
+}
+
+weather_owm {
+  api_key = 'aa476b58ec76c002285f2b08031775e4'
+  city = 'Boston'
+  unit_temperature = 'C'
+}
 
 sysdata simplified {
   format = "cpu: {cpu_used_percent}% {mem_used_percent}%"
